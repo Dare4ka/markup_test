@@ -113,6 +113,10 @@
 			width: 155px;
 		}
 
+		&__link_list {
+			padding-right: 10px;
+		}
+
 		&__social {
 			width: 100%;
 			padding: 20px 0;
@@ -205,7 +209,6 @@
 		}
 		
 		&__h {
-			white-space: normal;
 			padding-left: 47px;
 			position: relative;
 				/*стрелочка "назад"*/
