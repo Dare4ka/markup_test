@@ -1,0 +1,298 @@
+
+@media screen and (max-width: 870px) {
+
+	.header {
+
+		&__container {
+			width: 100%;
+		}
+		
+		&__inside {
+			display: block;
+			width: auto;
+			height: auto;
+		}
+	}
+
+	.logo_head {
+		padding: 0;
+	}
+
+	.menu {
+
+		&_navigation {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -270px;
+			background-color:($border);
+			width: 270px;
+			min-height: 100vh;
+			z-index: 20;
+			padding: 20px;
+			transform: translateX(0);
+			transition: transform 0.3s;
+
+			&_transform {
+				transform: translateX(270px);
+				transition: transform 0.3s;
+			}
+		}
+
+		&__item {
+
+			&_navigation {
+				display: block;
+			}
+		}
+
+		&__link {
+
+			&_navigation {
+				font-size: ($f-size) + 2;
+				text-transform: capitalize;
+				padding: 0;
+				padding-bottom: 20px;
+				border: none;
+				line-height: 20px;
+
+				&::after {
+					left: 0;
+					width: 60%;
+					transition: none;
+				}
+
+				&:hover {
+
+					&::after {
+						transition: opacity 0.3s, transform 0.3s;
+					}
+				}
+			}
+		}
+	}
+
+	.menu-open {
+		display: block;
+	}
+
+			/*footer на маленьких экранах*/
+	.footer {
+
+		&__container {
+			flex-direction: column;
+			max-width: 600px;
+			padding: 25px 20px;
+		}
+
+		&__description {
+			width: 100%;
+			padding: 0;
+			padding-bottom: 20px;
+			border-right: none;
+			border-bottom: 1px solid #dfdfdf;
+		}
+
+		&__agreement {
+			padding-top: 0;
+		}
+
+		&__about {
+			width: 100%;
+			border-bottom: 1px solid #dfdfdf;
+			padding: 25px 0 20px;
+			justify-content: space-between;
+		}
+
+		&__list {
+			padding: 0;
+			border: none;
+		}
+
+		&__items_icons {
+			width: 155px;
+		}
+
+		&__social {
+			width: 100%;
+			padding: 20px 0;
+			border-bottom: 1px solid #dfdfdf;
+		}
+	}
+
+	.developer {
+		position: relative;
+		padding-top: 15px;
+		bottom: auto;
+		right: auto;
+		width: 167px;
+	}
+			/*END footer на маленьких экранах*/
+
+}
+
+@media screen and (max-width: 740px) {
+			
+
+	.main {
+		flex-direction: column;
+			/*заголовок на маленьких экранах*/
+		&__media {
+		display: block;
+		}
+			/*end*/
+	}
+
+	.option {
+		width: 100%;
+
+		&__list {
+			margin: 0;
+		}
+	}
+
+	.goods {
+		width: 100%;
+		padding-left: 0;
+			/*заголовок на больших экранах*/
+		&__menu {
+			display: none;
+		}
+		/*end*/
+	}
+
+}
+
+@media screen and (max-width: 568px) {
+
+	.header {
+		height: 40px;
+
+		&__inside {
+			padding: 0;
+		}
+	}
+			
+	.menu-open__link {
+		line-height: 40px;
+	}
+
+	.logo__img {
+		width: 88px;
+		height: 21px;
+	}
+
+	.enter {
+		width: 35px;
+		padding: 0;
+		font-size: 0;
+		background: transparent url("../img/user.png") no-repeat center center;
+		
+		&::before {
+			display: none;
+		}
+	}
+	
+
+	.menu_bread-crumbs {
+		display: none;
+	}
+
+	.goods {
+
+		&__head {
+			flex-wrap: wrap;
+		}
+		
+		&__h {
+			white-space: normal;
+			padding-left: 47px;
+			position: relative;
+				/*стрелочка "назад"*/
+			&::before {
+				display: block;
+				position: absolute;
+				content: "<";
+				width: 34px;
+				height: 34px;
+				background-color: ($checkbox);
+				border-radius: 2px;
+				color: ($text-second);
+				line-height: 34px;
+				text-align: center;
+				font-size: 20px;
+				left: 0;
+				cursor: pointer;
+			}
+		}
+	}
+			/*карточки товаров*/
+	.product {
+		width: 45%;
+		padding-bottom: 45px;
+
+		&_last {
+			display: none;
+		}
+
+			%icon {
+				width: 62px;
+				background-color: ($checkbox) !important;
+				border-radius: 3px;
+				bottom: 0;
+				transform: scale(1);
+				transition-duration: 0s;
+			}
+
+		&__like {
+			@extend %icon;
+			left: 0;
+			color: ($text-second);
+			
+			
+			&:hover ~ {
+				.product__img {
+					@extend %icon_hover;
+				}
+			}
+		}
+
+		&__add {
+			@extend %icon;
+			right: 0;
+
+			&:hover ~ {
+				.product__img {
+					@extend %icon_hover;
+				}
+			}
+		}
+			%icon_hover {
+				transform: scale(1);
+			}
+		&__svg {
+			left: 22px;
+		}
+		
+			%stroke {
+				stroke: ($text-second);
+			}
+		&__rect {
+			@extend %stroke;
+		}
+	
+		&__line1 {
+			@extend %stroke;
+		}
+	
+
+		&__line2 {
+			@extend %stroke;
+		}
+
+		&__img-block {
+			position: static;
+		}
+	}
+			/*END карточки товаров*/
+}
