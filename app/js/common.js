@@ -49,6 +49,49 @@ $('.menu-open').click(function openMenu() {
 
 			//END открытие меню навигации
 
+var awrap = $('.option__form'),
+            lastScrollTop = 0,
+            wh = $(window).height();
 
+        $(window).on('scroll', function () {
+            var st = $(this).scrollTop(),
+                ot = awrap.offset().top,
+                h = awrap.height(),
+                dh = $(document).height();
+                // console.log($('footer').height())
+
+            if (st < $('main').offset().top) {
+                awrap.css({position : 'initial'});
+            } else {
+                if (h > wh && $('footer *').length > 0) {
+                    if (st > lastScrollTop
+                        && (st + wh) >= h + ot + $('main').offset().top
+                    ) {
+                        if ((st + wh) <= dh - $('footer').height()) {
+                            awrap.css({position: 'fixed'});
+                            awrap.css({bottom: 0});
+                            awrap.css({top: 'initial'});
+                        } else {
+                            awrap.css({position : 'absolute'});
+                            awrap.css({top : dh - h - $('footer').height()});
+                            awrap.css({bottom: 'initial'});
+                        }
+                    } else if (st < lastScrollTop && st <= ot - $('main').offset().top) {
+                        awrap.css({position: 'fixed'});
+                        awrap.css({top: 20});
+                        awrap.css({bottom: 'initial'});
+                    } else if (awrap.css('position') !== 'absolute' && awrap.css('position') !== 'initial' && awrap.css('position') !== 'static') {
+                        awrap.css({position : 'absolute'});
+                        awrap.css({top : ot});
+                        awrap.css({bottom: 'initial'});
+                    }
+                } else {
+                    awrap.css({position: 'fixed'});
+                    awrap.css({top: 0});
+                    awrap.css({bottom: 'initial'});
+                }
+            }
+            lastScrollTop = st;
+        });
 
 });

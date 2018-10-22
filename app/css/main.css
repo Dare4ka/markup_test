@@ -255,6 +255,7 @@
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
+          justify-content: flex-start;
   /*заголовок на маленьких экранах*/
   /*END*/
 }
@@ -306,6 +307,7 @@
 .option {
   display: block;
   width: 23.4%;
+  background-color: red;
 }
 
 .option__form {
